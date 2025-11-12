@@ -4,14 +4,20 @@ pygame.init()
 
 # ** PYGAME INIT **************************
 clock = pygame.time.Clock()
-window = pygame.display.set_mode((600,400))
-pygame.display.set_caption("SQUARE")
 
-x = 0
-vel = 100  # px/s
+WIDTH = 600
+HEIGHT = 400
+window = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("VECTOR FIELD")
+
+# ** INIT **************************
+spacing = 20
+magnitude = 40
+
 
 # ** MAIN ********************
-while True:
+run = True
+while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -19,12 +25,27 @@ while True:
 
     delta_ms = clock.tick(60)
     delta_s  = delta_ms / 1000.0
+    #x += vel * delta_s
 
-    x += vel * delta_s
+    mouseX, mouseY = pygame.mouse.get_pos()
+    mouse_pos = pygame.Vector2(mouseX, mouseY)
 
-    # desenho
-    window.fill((0,0,0))
-    pygame.draw.rect(window, (255,0,255), (x,0,50,30))
+
+    for grid_x in range(spacing // 2, WIDTH, spacing):
+        for grid_y in range(spacing // 2, HEIGHT, spacing):
+
+            grid_pos = pygame.Vector2(grid_x, grid_y)
+            
+            #destino - origem
+            direction = pygame.Vector2(mouse_pos - grid_pos)
+            distance_to_mouse = direction.magnitude()
+
+            direction.normalize()
+            direction.pygame.math.Vector2.normalize()
+            
+            #end_pos = origem + direção_normalizada * magnitude
+            end_pos = pygame.Vector2(grid_pos + (direction * magnitude))
+        print(end_pos)
 
     pygame.display.update()
 
