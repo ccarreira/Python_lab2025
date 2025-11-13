@@ -1,52 +1,52 @@
-import pygame
+import pygame, random
+import numpy as np
 
 pygame.init()
+
+WIDTH = 260
+HEIGHT = 200
 
 # ** PYGAME INIT **************************
 clock = pygame.time.Clock()
 
-WIDTH = 600
-HEIGHT = 400
 window = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("VECTOR FIELD")
+pygame.display.set_caption("NOISE 01")
 
-# ** INIT **************************
-spacing = 20
-magnitude = 40
+# ** UTIL **************************
 
+WHITE = (255,255,255)
+BLACK = (0,0,0)
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLUE = (0,0,255)
 
 # ** MAIN ********************
-run = True
-while run:
+running = True
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            running = False
             pygame.quit()
             raise SystemExit
 
-    delta_ms = clock.tick(60)
-    delta_s  = delta_ms / 1000.0
+    dt  = clock.tick(60) / 1000.0
     #x += vel * delta_s
 
+    #get Mouse Pos
     mouseX, mouseY = pygame.mouse.get_pos()
-    mouse_pos = pygame.Vector2(mouseX, mouseY)
+    mouse_pos = pygame.math.Vector2(mouseX, mouseY)
+    
+    # clear screen
+    pygame.draw.rect(window, BLACK, (0, 0, WIDTH, HEIGHT), width=0)
 
-
-    for grid_x in range(spacing // 2, WIDTH, spacing):
-        for grid_y in range(spacing // 2, HEIGHT, spacing):
-
-            grid_pos = pygame.Vector2(grid_x, grid_y)
-            
-            #destino - origem
-            direction = pygame.Vector2(mouse_pos - grid_pos)
-            distance_to_mouse = direction.magnitude()
-
-            direction.normalize()
-            direction.pygame.math.Vector2.normalize()
-            
-            #end_pos = origem + direção_normalizada * magnitude
-            end_pos = pygame.Vector2(grid_pos + (direction * magnitude))
-        print(end_pos)
-
+    for grid_x in range(1, WIDTH, 1):
+        for grid_y in range(1, HEIGHT, 1):
+            #color = random.choice([(255,255,0), (255,255,0), (0,255,255)])
+            #color = random.choice([RED, GREEN, BLUE, WHITE])
+            #color = random.choice([BLACK, WHITE])
+            color = random.randint(0, 255)
+            pygame.draw.line(window, (color, color, color), (grid_x, grid_y), (grid_x, grid_y), width=1)
+     
     pygame.display.update()
 
 
