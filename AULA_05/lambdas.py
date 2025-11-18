@@ -33,6 +33,8 @@ Cria um dicionário de lambdas que calcula o dano final de acordo com o tipo de 
 • Imprime a pontução final
 """
 
+dano_base = 40
+
 average_mult = lambda dano_base : dano_base * 1.2
 low_mult = lambda dano_base : dano_base * 1.1
 high_mult = lambda dano_base : dano_base * 1.5
@@ -49,4 +51,5 @@ def attack(weapon, damage):
         print("damage: ", final_damage)
 
 
-attack("magia", int(100))
+attack("magia", dano_base)
+
