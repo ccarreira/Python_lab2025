@@ -53,3 +53,12 @@ def attack(weapon, damage):
 
 attack("magia", dano_base)
 
+
+#2
+
+is_alive = lambda vida : True if vida > 0 else False
+
+print("vivo" if is_alive(0) else "morto")
+print("vivo" if is_alive(2) else "morto")
+
+

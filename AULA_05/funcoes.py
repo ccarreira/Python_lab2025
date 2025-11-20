@@ -93,7 +93,7 @@ def execute2(action, value="None"):
 
 comando = False
 while not comando:
-    action = str(input("qual a acao? : "))
+    action = input("qual a acao? : ").strip().lower()
     if action in dicionario_de_acoes:
         comando = True
     else:
