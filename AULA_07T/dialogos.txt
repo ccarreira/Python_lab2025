@@ -1,0 +1,19 @@
+Guard:Halt there, traveler!
+Guard:The city is closed after sunset.
+Guard:If you wish to enter, speak with the Mayor first.
+
+Merchant:I have the finest potions in the region.
+Merchant:No gold, no business.
+Merchant:I can buy whatever you no longer need.
+
+Healer:I can heal your wounds... for a fair price.
+Healer:Do not abuse danger just because I exist.
+Healer:Some scars are not of the body, but of the mind.
+
+Villager:Have you heard about the dragon to the north?
+Villager:They say it only appears when it rains.
+Villager:If you were smart, you'd go south.
+
+Mayor:The city is counting on you to save us.
+Mayor:I do not trust the Guard, but he is what we have.
+Mayor:Come back alive, alright?
