@@ -1,5 +1,5 @@
 #1
-"""
+
 def calcular_dano(base_damage, crit_chance):
     
     assert 0 <= crit_chance <= 1, "Crit chance inválida"
@@ -66,7 +66,7 @@ except Exception as e:
     print(e)
 
 
-"""
+
 #4
 
 

@@ -1,0 +1,27 @@
+{
+  "Guard": [
+    "Halt there, traveler!",
+    "The city is closed after sunset.",
+    "If you wish to enter, speak with the Mayor first."
+  ],
+  "Merchant": [
+    "I have the finest potions in the region.",
+    "No gold, no business.",
+    "I can buy whatever you no longer need."
+  ],
+  "Healer": [
+    "I can heal your wounds... for a fair price.",
+    "Do not abuse danger just because I exist.",
+    "Some scars are not of the body, but of the mind."
+  ],
+  "Villager": [
+    "Have you heard about the dragon to the north?",
+    "They say it only appears when it rains.",
+    "If you were smart, you'd go south."
+  ],
+  "Mayor": [
+    "The city is counting on you to save us.",
+    "I do not trust the Guard, but he is what we have.",
+    "Come back alive, alright?"
+  ]
+}
