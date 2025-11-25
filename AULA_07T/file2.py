@@ -24,9 +24,7 @@ numero de acções de cada dia e o total de acções de ambos os dias
 """
 
 
-#Usa o ficheiro highscore.json do moodle, cria um dicionário 
-#com os dado e imprime. Faz uma verificação para confirmar que 
-#o ficheiro não está vazio
+#Usa o ficheiro highscore.json do moodle, 
 
 #0 PRE
 
@@ -34,15 +32,53 @@ import os
 #os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
 os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AULA_07T")
 
-
-#1
 import json
 
-file = open("highscore.json", "rt")
+#1 cria um dicionário com os dado e imprime. 
+# Faz uma verificação para confirmar que 
+# o ficheiro não está vazio
+
+file = open("highscores.json", "rt")
 
 player_data = {}
 
 json_data = file.read()
-player_data = json.loads(json_data)
-print("loaded player data:", player_data)
+
+if not json_data:
+    print("Erro: ficheiro vazio")
+else:
+    player_data = json.loads(json_data)
+    print("Loaded player data:", player_data)
+
 file.close()
+
+
+#2• Usa o sistema de input para pedir ao utilizador um novo nome  
+# e score inteiro. Adiciona esses dados aos highscore
+"""
+nome  = input("nome: ")
+score = input("score: ")
+
+player_data["highscores"].append({"nome": nome, "score": score})
+print(player_data)
+"""
+
+# • Ordena a lista de highscores por score descrescente 
+# (sem usar sort() ou sorted())
+
+highscores = player_data["highscores"]
+ordenado = []
+
+while highscores:
+    maior = highscores[0]
+    for player in highscores:
+        #print("Maior", maior, "Player", player)
+        if player["score"] > maior["score"]:
+            maior = player
+    ordenado.append(maior)
+    highscores.remove(maior)
+
+
+print("Highscores ordenados:", ordenado)
+
+#• Mantem apenas os 3 melhores resultados
