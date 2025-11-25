@@ -1,6 +1,6 @@
 """
 
-Gestão de diálogos
+1. Gestão de diálogos
 • Usa o ficheiro dialogos.txt no moodle, e 
 faz print de todas as linhas do ficheiro.
 • Separa cada linha do ficheiro por nome e fala.
@@ -23,6 +23,7 @@ ou sorted())
 • Mantem apenas os 3 melhores resultados
 • Serializa novamente a lista de scores como new_highscores.json
 • No final imprime o novo ranking numerado (1º, 2º e 3º)
+
 3. Merge de game logs
 • Usa os dois ficheiro que estão no moodle – day1.log e day2.log
 • Abre os ficheiro e lê todas as linhas de cada um deles
@@ -41,6 +42,8 @@ Aula 724/11/2025
 
 import os
 os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
+#os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AULA_07T")
+
 
 
 #1
