@@ -34,7 +34,7 @@ os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AUL
 
 import json
 
-#1 cria um dicionário com os dado e imprime. 
+#1 cria um dicionário com os dados e imprime. 
 # Faz uma verificação para confirmar que 
 # o ficheiro não está vazio
 
@@ -51,6 +51,44 @@ else:
     print("Loaded player data:", player_data)
 
 file.close()
+
+# com exceptions
+
+import json
+
+try:
+    # 1) Open file
+    file = open("highscores.json", "rt")
+
+    # 2) Read contents
+    json_data = file.read()
+
+    if not json_data:
+        raise ValueError("Ficheiro vazio")   # your custom rule
+
+    # 3) Parse JSON
+    try:
+        player_data = json.loads(json_data)
+    except json.JSONDecodeError as e:
+        raise ValueError("JSON inválido") from e
+
+except FileNotFoundError:
+    print("Erro: ficheiro highscores.json não existe")
+
+except ValueError as e:
+    # This handles: empty file OR invalid JSON
+    print("Erro:", e)
+
+finally:
+    # guaranteed to run if file exists
+    try:
+        file.close()
+    except:
+        pass
+
+
+
+
 
 
 #2• Usa o sistema de input para pedir ao utilizador um novo nome  
