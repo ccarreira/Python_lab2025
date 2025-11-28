@@ -11,15 +11,6 @@ ou sorted())
 • Serializa novamente a lista de scores como new_highscores.json
 • No final imprime o novo ranking numerado (1º, 2º e 3º)
 
-3. Merge de game logs
-• Usa os dois ficheiro que estão no moodle – day1.log e day2.log
-• Abre os ficheiro e lê todas as linhas de cada um deles
-• Cria um merged log com todas lingas dos dois logs, 
-cada linha deve ter a indicação do dia no formato [DAY1] ou [DAY2]
-• Conta o total de linhas de cada um dos dias usando o merged log
-• Cria um dicionário estátistico que contenha o 
-numero de acções de cada dia e o total de acções de ambos os dias
-• Serializa o merged log num log_stats.json
 
 """
 
@@ -29,8 +20,8 @@ numero de acções de cada dia e o total de acções de ambos os dias
 #0 PRE
 
 import os
-#os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
-os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AULA_07T")
+os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
+#os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AULA_07T")
 
 import json
 
@@ -54,9 +45,8 @@ else:
         print("json inválido")
 file.close()
 
-# com exceptions
 
-import json
+# com exceptions
 
 try:
     # 1) Open file
@@ -90,13 +80,7 @@ finally:
 
 
 
-
-
-
-
 #versao b
-
-
 
 try:
     # 1) Open file
@@ -133,19 +117,19 @@ finally:
 
 #2• Usa o sistema de input para pedir ao utilizador um novo nome  
 # e score inteiro. Adiciona esses dados aos highscore
-"""
-nome  = input("nome: ")
-score = input("score: ")
 
-player_data["highscores"].append({"nome": nome, "score": score})
+nome  = str(input("name: "))
+score = int(input("score: "))
+
+player_data["highscores"].append({"name": nome, "score": score})
 print(player_data)
-"""
+
 
 # • Ordena a lista de highscores por score descrescente 
 # (sem usar sort() ou sorted())
 
 highscores = player_data["highscores"]
-ordenado = []
+highscores_ordenado = []
 
 while highscores:
     maior = highscores[0]
@@ -153,10 +137,30 @@ while highscores:
         #print("Maior", maior, "Player", player)
         if player["score"] > maior["score"]:
             maior = player
-    ordenado.append(maior)
+    highscores_ordenado.append(maior)
     highscores.remove(maior)
 
-
-print("Highscores ordenados:", ordenado)
+print("Highscores ordenados:", highscores_ordenado)
 
 #• Mantem apenas os 3 melhores resultados
+
+highscores_top3 = {"highscores": highscores_ordenado[:3]}
+print("Highscores top 3:", highscores_top3)
+
+#• Serializa novamente a lista de scores como new_highscores.json
+
+f = open("new_highscores.json", "w", encoding="utf-8")
+json.dump(highscores_top3, f, ensure_ascii=False, indent=2)
+f.close()
+
+#• No final imprime o novo ranking numerado (1º, 2º e 3º)
+
+for i, p in enumerate(highscores_top3["highscores"], start=10):
+    print(str(i)+"º :", p["name"], " : ", p["score"])
+
+
+
+"""i=1
+for p in highscores_top3["highscores"]:
+    print(str(i)+"º :", p["name"], " : ", p["score"])
+    i += 1"""
