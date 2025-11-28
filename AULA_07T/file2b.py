@@ -83,20 +83,16 @@ finally:
 #versao b
 
 try:
-    # 1) Open file
     file = open("highscores.json", "rt")
-
-    # 2) Read contents
     json_data = file.read()
 
     if not json_data:
-        raise ValueError("Ficheiro vazio")   # your custom rule
+        raise ValueError("Erro: Ficheiro Vazio!")
 
-    # 3) Parse JSON
     try:
         player_data = json.loads(json_data)
     except json.JSONDecodeError as e:
-        raise ValueError("JSON inválido") from e
+        raise ValueError("Erro: Ficheiro Não Contém JSON Válido!") from e
 
 except FileNotFoundError:
     print("Erro: ficheiro highscores.json não existe")
