@@ -155,12 +155,14 @@ f.close()
 
 #• No final imprime o novo ranking numerado (1º, 2º e 3º)
 
-for i, p in enumerate(highscores_top3["highscores"], start=10):
+for i, p in enumerate(highscores_top3["highscores"], start=1):
     print(str(i)+"º :", p["name"], " : ", p["score"])
 
+"""
 
-
-"""i=1
+i=1
 for p in highscores_top3["highscores"]:
     print(str(i)+"º :", p["name"], " : ", p["score"])
-    i += 1"""
+    i += 1
+
+"""
