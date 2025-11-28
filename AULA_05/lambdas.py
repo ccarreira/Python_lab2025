@@ -26,6 +26,7 @@ Cria um dicionário de lambdas que calcula o dano final de acordo com o tipo de 
 
 2. Cria um lambda que receba os pontos de vida e devolva "vivo" se forem maiores que 0, ou "morto" caso contrário.
 • Lista: vida = [50, 10, 0, -5]
+
 3. Cria uma função pontuacao(tipo) que devolve uma lambda diferente dependendo do tipo de evento.
 • Usa essa função para calcular pontuação
 • Usa uma lista de tuplos para as acções e valores: acoes = [("inimigo", 50), ("chefe", 100), ("missao", 20)]

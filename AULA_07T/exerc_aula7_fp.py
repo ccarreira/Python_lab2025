@@ -17,14 +17,13 @@ def calcular_dano(base_damage, crit_chance):
 
 try:
     print(calcular_dano(50, 1.5))   # rebenta aqui
-except (AssertionError):
+except AssertionError:
     print("crit invalido")
-
+except ValueError:
+    print("valor invalido")
 
 
 #2
-
-
 
 class InventoryFull(Exception):
     pass
