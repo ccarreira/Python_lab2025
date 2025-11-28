@@ -1,29 +1,19 @@
+
+import sys
 import json
 
-#path = r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/GIT_REP/FPSemana04"
+#import os
+#os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/GIT_REP/FPSemana04")
+#os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\tt")
+#filepath = "data.json"
 
-import os
-os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/GIT_REP/FPSemana04")
+filepath = sys.argv[1]
 
-#file = open(path+"data.json", "rt")
-
-file_path="data.json"
-
-class CriticalError(Exception):
-    """File Not Found, """
-
-def all_fields_in_data(self, data):
-    hasNome = False
-    hasIdade = False
-    hasLocalizacao = False
-    for key in data:
-        if key == "nome": hasNome = True
-        if key == "idade": hasIdade = True
-        if key == "localizacao": hasLocalizacao = True
-    return (hasNome and hasIdade and hasLocalizacao)
+def all_fields_in_data(data):
+    return (("nome" in data) and ("idade" in data) and ("localização" in data))
 
 try:
-    file = open(file_path, "rt")
+    file = open(filepath, "rt", encoding="utf-8")
     json_data = file.read()
 
     if not json_data:
@@ -38,17 +28,14 @@ try:
         raise ValueError("Ficheiro Não Contém JSON Válido!") from e
 
 except FileNotFoundError as e:
-    raise CriticalError("Ficheiro Não Encontrado!") from e
+    print("Erro:", "Ficheiro Não Encontrado!")
 
 except ValueError as e:
     print("Erro:", e)
 
-except CriticalError as e:
-    print("Erro:", e)
-
 finally:
+    print("Processo Concluído!")
     try:
-        print("Processo Concluído!")
         file.close()
     except:
         pass
