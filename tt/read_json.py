@@ -21,9 +21,9 @@ try:
 
     try:
         player_data = json.loads(json_data)
-        print(player_data)
         if (not all_fields_in_data(player_data)): 
             raise ValueError("Campos Obrigatórios em Falta!")
+        print(player_data)
     except json.JSONDecodeError as e:
         raise ValueError("Ficheiro Não Contém JSON Válido!") from e
 
