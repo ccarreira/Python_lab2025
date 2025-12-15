@@ -1,6 +1,6 @@
-Lista **curta, prática e focada** dos **erros built-in mais usados** no Python (os que realmente aparecem em código normal, jogos, scripts e exercícios).
+erros built-in mais usados
 
----
+
 
 # **1. Erros de valor/lógica**
 

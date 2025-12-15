@@ -41,7 +41,7 @@ Aula 724/11/2025
 #0 PRE
 
 import os
-#os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
+os.chdir(r"C:\Users\johnd\Documents\VIDEOGAMES\AULAS\FP1\Python_lab2025\AULA_07T")
 #os.chdir(r"/Users/cesarcarreira/Documents/VIDEOGAMES_AULAS/FP/Python_lab2025/AULA_07T")
 
 
@@ -102,6 +102,7 @@ if NPC in dialogos.keys():
     f = open(NPC+"_dialog.json", "w", encoding="utf-8")
     json.dump(dialogos[NPC], f, ensure_ascii=False, indent=2)
     f.close()
+    print("e")
     print(dialogos[NPC])
 
 else:
